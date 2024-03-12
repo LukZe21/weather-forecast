@@ -1,0 +1,14 @@
+.single-fc {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 200px;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 2px;
+    height: 170px;
+    text-align: center;
+}
+
+.Vis {
+    text-align: center;
+}

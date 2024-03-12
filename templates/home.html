@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forecast - Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Welcome</h1>
+    {% for key,val in predictions.items() %}
+    <a href="{{ url_for('forecast_page')}}" id=""><div class="single-fc">
+    {% for key, info in val.items() %}
+    <p>{{key}} - {{info}}</p>
+    {% endfor %}
+    <p>{{key}}</p>
+    </div></a>
+    {% endfor %}
+
+    <div class="Vis">
+    <img src="data:image/png;base64,{{ plot_url }}" alt="plot">
+    </div>
+</body>
+</html>
