@@ -1,3 +1,53 @@
+.Vis {
+    text-align: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 150px;
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #1660e9;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
 .single-fc {
     border: 1px solid black;
     border-radius: 5px;
@@ -5,10 +55,109 @@
     display: inline-block;
     margin: 10px auto;
     padding: 2px;
-    height: 170px;
+    height: 230px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    opacity: 0.9;
+    display:inline-block;
+}
+
+.single-fc:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.single-fc-now {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 200px;
+    display: inline-block;
+    margin: 10px auto;
+    padding: 2px;
+    height: 230px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    display:inline-block;
+}
+
+
+.single-fc-now:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+a:hover {
+    color: #007bff;
+}
+
+.today-fc {
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.02s;
+}
+
+.today-fc-box {
+    background-color: rgb(236, 236, 236);
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.205);
+    padding: 10px;
+    width: 500px;
+    margin: auto;
     text-align: center;
 }
 
-.Vis {
-    text-align: center;
+
+@media only screen and (max-width: 600px) {
+    .today-fc-box {
+        width: 250px;
+    }
+    .Vis {
+        display: none
+    }
+
+    .container {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+#clock {
+    font-size: 2em;
+    color: #161616;
+    text-align: left;
+}
+
+#date {
+    font-size: 1em;
+    color: #161616;
+    text-align: left;
+}
+
+#img-fc {
+    height: 250px;
+}
+
+#img-fc-sm {
+    height: 50px;
 }

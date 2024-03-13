@@ -3,18 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forecast - Home</title>
+    <title>Forecast - {{title}}</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome</h1>
-    {% for key,val in predictions.items() %}
-    <a href="{{ url_for('forecast_page')}}" id=""><div class="single-fc">
-    {% for key, info in val.items() %}
-    <p>{{key}} - {{info}}</p>
+    <script>
+        function updateTime() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            document.getElementById('clock').innerHTML = hours + ":" + minutes;
+        }
+        setInterval(updateTime, 1000);  // Update every second
+    </script>
+
+    <form action="#" method="post">
+        <select name="dropdown">
+            <option value="tbilisi">Tbilisi</option>
+            <option value="kutaisi">Kutaisi</option>
+            <option value="rustavi">Rustavi</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h1>Weather in {{title}}</h1>
+
+    <div class="today-fc-box">
+    <p style="text-align: left; color: rgb(17, 17, 17); font-size: 28px">Weather Today</p>
+        {% for key, val in current_fc.items() %}
+        <div id="clock">{{ time }}</div>
+        <p id="date">{{ key }}</p>
+        {% for key, info in val.items() %}
+            {% if key == 'Forecast' %}
+            <img id="img-fc" src="{{ url_for('static', filename='images/' + info + '.jpg') }}">
+            {% endif %}
+            <p class="today-fc">{{ key }} - {{ info }}</p>
+        {% endfor %}
+        <a href="{{url_for('hourly_forecast')}}" style="border: 1px solid black; padding:5px; background-color: rgb(37, 137, 231); color: white; border-radius: 5px;">View Weather by Hour</a>
+    </div>
     {% endfor %}
-    <p>{{key}}</p>
-    </div></a>
+    <h1>Weather Forecast</h1>
+    <form action="#" method="post">
+        <select name="dropdown">
+            <option value="1w">1 Week</option>
+            <option value="2w">2 Weeks</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    <h2>{{time_frame}}</h2>
+        {% for key,val in predictions.items() %}
+        <a href="#"><div class="single-fc">
+            {% for key, info in val.items() %}
+                {% if key == 'Forecast' %}
+                <img id="img-fc-sm" src="{{ url_for('static', filename='images/' + info + '.jpg') }}">
+                {% endif %}
+                <p>{{key}} - {{info}}</p>
+            {% endfor %}
+            <p style="color: black; font-size: 20px;">{{key}}</p>
+        </div></a>
     {% endfor %}
 
     <div class="Vis">

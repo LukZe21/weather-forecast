@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hourly Forecast - {{title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <a href="{{url_for('home')}}" style="color: rgb(55, 116, 230); font-size: 30px; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">⬅️Go Back</a>
+    <br>
+    {% for key, val in hour_fc.items()%}
+    {% if key >= hour_now %}
+        <a href=""><div class="single-fc-now">
+                <p>{{key}}:00</p>
+                {% for key, info in val.items() %}
+                    {% if key=='Forecast' %}
+                    <img id="img-fc-sm" src="{{ url_for('static', filename='images/' + info + '.jpg') }}">
+                    {% endif %}
+                    <p>{{key}} - {{info}}</p>
+                {% endfor %}
+        </div></a>
+    {% else %}
+        <a href=""><div class="single-fc">
+            <p>{{key}}:00</p>
+            {% for key, info in val.items() %}
+                {% if key=='Forecast' %}
+                <img id="img-fc-sm" src="{{ url_for('static', filename='images/' + info + '.jpg') }}">
+                {% endif %}
+                <p>{{key}} - {{info}}</p>
+                <p>TIME PASSED</p>
+            {% endfor %}
+        </div></a>
+    {%endif%}
+    {%endfor%}
+
+    <div class="Vis">
+        <img src="data:image/png;base64,{{ plot_url }}" alt="plot">
+    </div>
+    
+</body>
+</html>
