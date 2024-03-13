@@ -4,3 +4,4 @@ matplotlib
 seaborn
 datetime
 requests
+Frozen-Flask
