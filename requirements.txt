@@ -5,4 +5,4 @@ seaborn
 datetime
 requests
 Frozen-Flask
-sklearn
+scikit-learn
